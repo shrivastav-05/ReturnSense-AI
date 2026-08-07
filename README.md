@@ -40,58 +40,12 @@ The project combines data preprocessing, classification models, and a Flask web 
 
 ---
 
-## 📂 Project Structure
-
-```
-ReturnSense-AI/
-│
-├── data/
-├── models/
-├── templates/
-├── static/
-├── notebooks/
-├── app.py
-├── requirements.txt
-├── README.md
-└── LICENSE
-```
-
----
-
 ## 🎯 Problem Statement
 
 Product returns are a major challenge in e-commerce.
 
 ReturnSense AI predicts whether an order is likely to be returned before delivery, enabling businesses to make better operational decisions.
 
----
-
-## 📈 Model Workflow
-
-1. Data Collection
-2. Data Cleaning
-3. Feature Engineering
-4. Data Encoding
-5. Model Training
-6. Model Evaluation
-7. Model Saving
-8. Flask Deployment
-
----
-
-## 📊 Current Status
-
-- ✅ Machine Learning Model Completed
-- ✅ Flask Application Completed
-- 🔄 Dashboard (In Progress)
-- 🔄 Power BI Dashboard (Planned)
-- 🔄 Live Deployment (Planned)
-
----
-
-## 👨‍💻 Author
-
-**Shivam Shrivastav**
 ---
 
 ## 📄 License
