@@ -51,3 +51,20 @@ ReturnSense AI predicts whether an order is likely to be returned before deliver
 ## 📄 License
 
 This project is licensed under the MIT License.
+
+## 🖥️ Application Screenshots
+
+### Prediction Interface
+
+![Prediction Interface](screenshots/home.png)
+
+### Prediction Result
+
+![Prediction Result](screenshots/prediction.png)
+
+## Author
+Shivam Shrivastav
+
+BCA Student | Data Analytics & Machine Learning
+
+⭐ If you find this project useful, consider giving the repository a star.
