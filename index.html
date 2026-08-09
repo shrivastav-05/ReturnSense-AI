@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>ReturnAI - E-Commerce Return Prediction</title>
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+
+  <body>
+    <!-- ========================= -->
+    <!-- NAVIGATION -->
+    <!-- ========================= -->
+
+    <nav class="navbar">
+      <div class="logo">🛒 ReturnAI</div>
+
+      <div class="nav-links">
+        <a href="#home">Home</a>
+
+        <a href="#prediction">Prediction</a>
+
+        <a href="#how-it-works">How It Works</a>
+
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <!-- ========================= -->
+    <!-- MAIN -->
+    <!-- ========================= -->
+
+    <main class="page" id="home">
+      <!-- ========================= -->
+      <!-- PREDICTION CARD -->
+      <!-- ========================= -->
+
+      <section class="app-card" id="prediction">
+        <div class="hero">
+          <div class="badge">AI / MACHINE LEARNING</div>
+
+          <h1>E-Commerce Return Prediction</h1>
+
+          <p>
+            Predict customer return risk using your trained machine learning
+            model.
+          </p>
+        </div>
+
+        <!-- ========================= -->
+        <!-- FORM -->
+        <!-- ========================= -->
+
+        <form action="/predict" method="POST">
+          <div class="section-title">Order Information</div>
+
+          <div class="grid">
+            <!-- Category -->
+
+            <div class="field">
+              <label>Category</label>
+
+              <select name="category" required>
+                <option value="">Select category</option>
+
+                <option>Electronics</option>
+                <option>Fashion</option>
+                <option>Home</option>
+                <option>Beauty</option>
+                <option>Sports</option>
+                <option>Grocery</option>
+                <option>Toys</option>
+              </select>
+            </div>
+
+            <!-- Price -->
+
+            <div class="field">
+              <label>Price</label>
+
+              <input
+                type="number"
+                name="price"
+                step="0.01"
+                min="0"
+                placeholder="e.g. 499.99"
+                required
+              />
+            </div>
+
+            <!-- Discount -->
+
+            <div class="field">
+              <label>Discount (%)</label>
+
+              <input
+                type="number"
+                name="discount"
+                step="0.01"
+                min="0"
+                max="100"
+                placeholder="e.g. 10"
+                required
+              />
+            </div>
+
+            <!-- Quantity -->
+
+            <div class="field">
+              <label>Quantity</label>
+
+              <input
+                type="number"
+                name="quantity"
+                min="1"
+                placeholder="e.g. 2"
+                required
+              />
+            </div>
+
+            <!-- Payment -->
+
+            <div class="field">
+              <label>Payment Method</label>
+
+              <select name="payment_method" required>
+                <option value="">Select payment method</option>
+
+                <option>Credit Card</option>
+                <option>Debit Card</option>
+                <option>UPI</option>
+                <option>Cash on Delivery</option>
+                <option>Net Banking</option>
+              </select>
+            </div>
+
+            <!-- Region -->
+
+            <div class="field">
+              <label>Region</label>
+
+              <select name="region" required>
+                <option value="">Select region</option>
+
+                <option>North</option>
+                <option>South</option>
+                <option>East</option>
+                <option>West</option>
+              </select>
+            </div>
+
+            <!-- Automatic Total -->
+
+            <div class="field">
+              <label> Calculated Total Amount </label>
+
+              <input
+                type="text"
+                id="total_amount_display"
+                value="₹ 0.00"
+                readonly
+              />
+            </div>
+
+            <!-- Shipping -->
+
+            <div class="field">
+              <label>Shipping Cost</label>
+
+              <input
+                type="number"
+                name="shipping_cost"
+                step="0.01"
+                min="0"
+                placeholder="e.g. 40"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- ========================= -->
+          <!-- CUSTOMER INFORMATION -->
+          <!-- ========================= -->
+
+          <div class="section-title">Customer Information</div>
+
+          <div class="grid">
+            <!-- Profit -->
+
+            <div class="field">
+              <label>Profit Margin</label>
+
+              <input
+                type="number"
+                name="profit_margin"
+                step="0.01"
+                placeholder="e.g. 0.25"
+                required
+              />
+            </div>
+
+            <!-- Age -->
+
+            <div class="field">
+              <label>Customer Age</label>
+
+              <input
+                type="number"
+                name="customer_age"
+                min="1"
+                placeholder="e.g. 25"
+                required
+              />
+            </div>
+
+            <!-- Gender -->
+
+            <div class="field">
+              <label>Customer Gender</label>
+
+              <select name="customer_gender" required>
+                <option value="">Select gender</option>
+
+                <option>Male</option>
+                <option>Female</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Buttons -->
+
+          <div class="buttons">
+            <button class="predict-btn" type="submit">
+              Predict Return Risk
+            </button>
+
+            <a class="reset-btn" href="/"> Reset </a>
+          </div>
+        </form>
+
+        <!-- ========================= -->
+        <!-- RESULT -->
+        <!-- ========================= -->
+
+        {% if result %}
+
+        <div class="result {{ status }}">
+          <div class="result-icon">
+            {% if status == "success" %} ✓ {% else %} ! {% endif %}
+          </div>
+
+          <div>
+            <h2>{{ result }}</h2>
+
+            {% if probability is not none %}
+
+            <p>
+              Return probability:
+
+              <strong> {{ "%.2f"|format(probability) }}% </strong>
+            </p>
+
+            <div class="bar">
+              <div class="bar-fill" style="width: {{ probability }}%;"></div>
+            </div>
+
+            {% endif %}
+          </div>
+        </div>
+
+        {% endif %}
+
+        <!-- ========================= -->
+        <!-- ERROR -->
+        <!-- ========================= -->
+
+        {% if error %}
+
+        <div class="result danger">
+          <div class="result-icon">!</div>
+
+          <div>
+            <h2>Something went wrong</h2>
+
+            <p>{{ error }}</p>
+          </div>
+        </div>
+
+        {% endif %}
+
+        <footer>E-Commerce Return Prediction • Flask + Scikit-learn</footer>
+      </section>
+
+      <!-- ========================= -->
+      <!-- HOW IT WORKS -->
+      <!-- ========================= -->
+
+      <section class="info-section" id="how-it-works">
+        <div class="info-header">
+          <div class="badge">HOW IT WORKS</div>
+
+          <h2>How ReturnAI Predicts Returns</h2>
+
+          <p>
+            Our machine learning system analyzes customer and order information
+            to estimate return risk.
+          </p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-number">01</div>
+
+            <h3>Enter Order Details</h3>
+
+            <p>
+              Enter product, price, discount, quantity, payment and shipping
+              information.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">02</div>
+
+            <h3>Data Processing</h3>
+
+            <p>
+              The input data is processed using the trained preprocessing
+              pipeline.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">03</div>
+
+            <h3>Machine Learning</h3>
+
+            <p>
+              The trained machine learning model analyzes the processed order
+              and customer data.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">04</div>
+
+            <h3>Return Prediction</h3>
+
+            <p>
+              The system predicts return risk and displays the return
+              probability.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================= -->
+      <!-- ABOUT -->
+      <!-- ========================= -->
+
+      <section class="info-section" id="about">
+        <div class="info-header">
+          <div class="badge">ABOUT</div>
+
+          <h2>About ReturnAI</h2>
+
+          <p>
+            An AI-powered e-commerce return prediction project built using
+            machine learning.
+          </p>
+        </div>
+
+        <div class="about-content">
+          <h3>Developed by Shivam Shrivastav</h3>
+
+          <p>
+            ReturnAI is an end-to-end machine learning project designed to
+            estimate whether an e-commerce order is likely to be returned.
+          </p>
+
+          <p>
+            The system takes customer and order information, processes the data
+            using a trained preprocessing pipeline, and uses a trained machine
+            learning model to generate the return prediction.
+          </p>
+
+          <div class="about-details">
+            <div>
+              <strong>Project:- </strong>
+              <span> E-Commerce Return Prediction </span>
+            </div>
+            <div>
+              <strong>Output</strong>
+              <span> Return Prediction + Probability </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+     
+
+    <!-- ========================= -->
+    <!-- AUTOMATIC TOTAL CALCULATION -->
+    <!-- ========================= -->
+
+    <script>
+      const priceInput = document.querySelector('input[name="price"]');
+
+      const discountInput = document.querySelector('input[name="discount"]');
+
+      const quantityInput = document.querySelector('input[name="quantity"]');
+
+      const totalDisplay = document.getElementById("total_amount_display");
+
+      function calculateTotal() {
+        const price = parseFloat(priceInput.value) || 0;
+
+        const discount = parseFloat(discountInput.value) || 0;
+
+        const quantity = parseFloat(quantityInput.value) || 0;
+
+        const total = price * quantity * (1 - discount / 100);
+
+        totalDisplay.value = "₹ " + total.toFixed(2);
+      }
+
+      priceInput.addEventListener("input", calculateTotal);
+
+      discountInput.addEventListener("input", calculateTotal);
+
+      quantityInput.addEventListener("input", calculateTotal);
+
+      calculateTotal();
+    </script>
+  </body>
+</html>
