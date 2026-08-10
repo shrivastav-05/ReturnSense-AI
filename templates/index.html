@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>ReturnAI - E-Commerce Return Prediction</title>
@@ -27,7 +28,7 @@
 
         <a href="#how-it-works">How It Works</a>
 
-        <a href="#contact">Contact</a>
+        <a href="#about">About</a>
       </div>
     </nav>
 
@@ -41,14 +42,16 @@
       <!-- ========================= -->
 
       <section class="app-card" id="prediction">
+        <!-- HERO -->
+
         <div class="hero">
           <div class="badge">AI / MACHINE LEARNING</div>
 
           <h1>E-Commerce Return Prediction</h1>
 
           <p>
-            Predict customer return risk using your trained machine learning
-            model.
+            Predict whether an e-commerce order is likely to be returned using a
+            trained machine learning model.
           </p>
         </div>
 
@@ -57,46 +60,56 @@
         <!-- ========================= -->
 
         <form action="/predict" method="POST">
-          <div class="section-title">Order Information</div>
+          <!-- ========================= -->
+          <!-- ORDER INFORMATION -->
+          <!-- ========================= -->
+
+          <div class="section-title">📦 Order Information</div>
 
           <div class="grid">
-            <!-- Category -->
+            <!-- CATEGORY -->
 
             <div class="field">
-              <label>Category</label>
+              <label> Category </label>
 
               <select name="category" required>
                 <option value="">Select category</option>
 
                 <option>Electronics</option>
+
                 <option>Fashion</option>
+
                 <option>Home</option>
+
                 <option>Beauty</option>
+
                 <option>Sports</option>
+
                 <option>Grocery</option>
+
                 <option>Toys</option>
               </select>
             </div>
 
-            <!-- Price -->
+            <!-- PRICE -->
 
             <div class="field">
-              <label>Price</label>
+              <label> Price </label>
 
               <input
                 type="number"
                 name="price"
                 step="0.01"
                 min="0"
-                placeholder="e.g. 499.99"
+                placeholder="e.g. 999.99"
                 required
               />
             </div>
 
-            <!-- Discount -->
+            <!-- DISCOUNT -->
 
             <div class="field">
-              <label>Discount (%)</label>
+              <label> Discount (%) </label>
 
               <input
                 type="number"
@@ -109,10 +122,10 @@
               />
             </div>
 
-            <!-- Quantity -->
+            <!-- QUANTITY -->
 
             <div class="field">
-              <label>Quantity</label>
+              <label> Quantity </label>
 
               <input
                 type="number"
@@ -123,41 +136,63 @@
               />
             </div>
 
-            <!-- Payment -->
+            <!-- PAYMENT METHOD -->
 
             <div class="field">
-              <label>Payment Method</label>
+              <label> Payment Method </label>
 
               <select name="payment_method" required>
                 <option value="">Select payment method</option>
 
                 <option>Credit Card</option>
+
                 <option>Debit Card</option>
+
                 <option>UPI</option>
+
                 <option>Cash on Delivery</option>
+
                 <option>Net Banking</option>
               </select>
             </div>
 
-            <!-- Region -->
+            <!-- REGION -->
 
             <div class="field">
-              <label>Region</label>
+              <label> Region </label>
 
               <select name="region" required>
                 <option value="">Select region</option>
 
                 <option>North</option>
+
                 <option>South</option>
+
                 <option>East</option>
+
                 <option>West</option>
               </select>
             </div>
 
-            <!-- Automatic Total -->
+            <!-- SHIPPING COST -->
 
             <div class="field">
-              <label> Calculated Total Amount </label>
+              <label> Shipping Cost </label>
+
+              <input
+                type="number"
+                name="shipping_cost"
+                step="0.01"
+                min="0"
+                placeholder="e.g. 50"
+                required
+              />
+            </div>
+
+            <!-- TOTAL AMOUNT -->
+
+            <div class="field">
+              <label> Total Amount </label>
 
               <input
                 type="text"
@@ -166,77 +201,75 @@
                 readonly
               />
             </div>
-
-            <!-- Shipping -->
-
-            <div class="field">
-              <label>Shipping Cost</label>
-
-              <input
-                type="number"
-                name="shipping_cost"
-                step="0.01"
-                min="0"
-                placeholder="e.g. 40"
-                required
-              />
-            </div>
           </div>
 
           <!-- ========================= -->
           <!-- CUSTOMER INFORMATION -->
           <!-- ========================= -->
 
-          <div class="section-title">Customer Information</div>
+          <div class="section-title">👤 Customer Information</div>
 
           <div class="grid">
-            <!-- Profit -->
+            <!-- AGE -->
 
             <div class="field">
-              <label>Profit Margin</label>
-
-              <input
-                type="number"
-                name="profit_margin"
-                step="0.01"
-                placeholder="e.g. 0.25"
-                required
-              />
-            </div>
-
-            <!-- Age -->
-
-            <div class="field">
-              <label>Customer Age</label>
+              <label> Customer Age </label>
 
               <input
                 type="number"
                 name="customer_age"
                 min="1"
+                max="100"
                 placeholder="e.g. 25"
                 required
               />
             </div>
 
-            <!-- Gender -->
+            <!-- GENDER -->
 
             <div class="field">
-              <label>Customer Gender</label>
+              <label> Customer Gender </label>
 
               <select name="customer_gender" required>
                 <option value="">Select gender</option>
 
                 <option>Male</option>
+
                 <option>Female</option>
               </select>
             </div>
           </div>
 
-          <!-- Buttons -->
+          <!-- ========================= -->
+          <!-- BUSINESS INFORMATION -->
+          <!-- ========================= -->
+
+          <div class="section-title">💼 Business Information</div>
+
+          <div class="grid">
+            <!-- PROFIT MARGIN -->
+
+            <div class="field">
+              <label> Profit Margin </label>
+
+              <input
+                type="number"
+                name="profit_margin"
+                step="0.01"
+                min="0"
+                placeholder="e.g. 0.25"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- ========================= -->
+          <!-- BUTTONS -->
+          <!-- ========================= -->
 
           <div class="buttons">
             <button class="predict-btn" type="submit">
-              Predict Return Risk
+              🔮 Predict Return Risk
             </button>
 
             <a class="reset-btn" href="/"> Reset </a>
@@ -257,10 +290,8 @@
           <div>
             <h2>{{ result }}</h2>
 
-            {% if probability is not none %}
-
             <p>
-              Return probability:
+              Return Probability:
 
               <strong> {{ "%.2f"|format(probability) }}% </strong>
             </p>
@@ -268,6 +299,14 @@
             <div class="bar">
               <div class="bar-fill" style="width: {{ probability }}%;"></div>
             </div>
+
+            {% if total_amount is not none %}
+
+            <p>
+              Total Order Amount:
+
+              <strong> ₹ {{ "%.2f"|format(total_amount) }} </strong>
+            </p>
 
             {% endif %}
           </div>
@@ -307,8 +346,8 @@
           <h2>How ReturnAI Predicts Returns</h2>
 
           <p>
-            Our machine learning system analyzes customer and order information
-            to estimate return risk.
+            Our machine learning system analyzes order, customer and business
+            information to estimate return risk.
           </p>
         </div>
 
@@ -327,6 +366,14 @@
           <div class="step-card">
             <div class="step-number">02</div>
 
+            <h3>Customer Information</h3>
+
+            <p>Provide basic customer information such as age and gender.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">03</div>
+
             <h3>Data Processing</h3>
 
             <p>
@@ -336,23 +383,12 @@
           </div>
 
           <div class="step-card">
-            <div class="step-number">03</div>
-
-            <h3>Machine Learning</h3>
-
-            <p>
-              The trained machine learning model analyzes the processed order
-              and customer data.
-            </p>
-          </div>
-
-          <div class="step-card">
             <div class="step-number">04</div>
 
             <h3>Return Prediction</h3>
 
             <p>
-              The system predicts return risk and displays the return
+              The trained machine learning model predicts the return risk and
               probability.
             </p>
           </div>
@@ -384,25 +420,27 @@
           </p>
 
           <p>
-            The system takes customer and order information, processes the data
-            using a trained preprocessing pipeline, and uses a trained machine
-            learning model to generate the return prediction.
+            The system takes order, customer and business information, processes
+            the data using a trained preprocessing pipeline, and generates a
+            return prediction.
           </p>
 
           <div class="about-details">
             <div>
-              <strong>Project:- </strong>
+              <strong> Project: </strong>
+
               <span> E-Commerce Return Prediction </span>
             </div>
+
             <div>
-              <strong>Output</strong>
+              <strong> Output: </strong>
+
               <span> Return Prediction + Probability </span>
             </div>
           </div>
         </div>
       </section>
-
-     
+    </main>
 
     <!-- ========================= -->
     <!-- AUTOMATIC TOTAL CALCULATION -->
@@ -415,6 +453,10 @@
 
       const quantityInput = document.querySelector('input[name="quantity"]');
 
+      const shippingInput = document.querySelector(
+        'input[name="shipping_cost"]',
+      );
+
       const totalDisplay = document.getElementById("total_amount_display");
 
       function calculateTotal() {
@@ -424,7 +466,23 @@
 
         const quantity = parseFloat(quantityInput.value) || 0;
 
-        const total = price * quantity * (1 - discount / 100);
+        const shipping = parseFloat(shippingInput.value) || 0;
+
+        // Product amount
+
+        const productAmount = price * quantity;
+
+        // Discount amount
+
+        const discountAmount = productAmount * (discount / 100);
+
+        // Amount after discount
+
+        const discountedAmount = productAmount - discountAmount;
+
+        // Final total including shipping
+
+        const total = discountedAmount + shipping;
 
         totalDisplay.value = "₹ " + total.toFixed(2);
       }
@@ -434,6 +492,8 @@
       discountInput.addEventListener("input", calculateTotal);
 
       quantityInput.addEventListener("input", calculateTotal);
+
+      shippingInput.addEventListener("input", calculateTotal);
 
       calculateTotal();
     </script>
