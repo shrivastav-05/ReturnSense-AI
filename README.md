@@ -1,4 +1,4 @@
-# 🛍️ ReturnSense AI
+# ReturnSense AI
 
 ### AI-Powered E-commerce Return Prediction System
 
@@ -6,7 +6,7 @@ Predict product returns before they happen using Machine Learning, helping e-com
 
 ---
 
-## 📌 Project Overview
+## 📌Project Overview
 
 ReturnSense AI is a Machine Learning-based web application that predicts whether an e-commerce order is likely to be returned.
 
@@ -14,7 +14,7 @@ The project combines data preprocessing, classification models, and a Flask web 
 
 ---
 
-## 🚀 Features
+## Features
 
 - Predict product return probability
 - User-friendly Flask Web Interface
@@ -26,7 +26,7 @@ The project combines data preprocessing, classification models, and a Flask web 
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - Python
 - Pandas
@@ -40,7 +40,7 @@ The project combines data preprocessing, classification models, and a Flask web 
 
 ---
 
-## 🎯 Problem Statement
+## Problem Statement
 
 Product returns are a major challenge in e-commerce.
 
@@ -48,11 +48,11 @@ ReturnSense AI predicts whether an order is likely to be returned before deliver
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License.
 
-## 🖥️ Application Screenshots
+## Application Screenshots
 
 ### Prediction Interface
 
@@ -67,4 +67,4 @@ Shivam Shrivastav
 
 BCA Student | Data Analytics & Machine Learning
 
-⭐ If you find this project useful, consider giving the repository a star.
+If you find this project useful, consider giving the repository a star.
