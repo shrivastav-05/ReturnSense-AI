@@ -6,7 +6,7 @@ Predict product returns before they happen using Machine Learning, helping e-com
 
 ---
 
-## 📌Project Overview
+## Project Overview
 
 ReturnSense AI is a Machine Learning-based web application that predicts whether an e-commerce order is likely to be returned.
 
