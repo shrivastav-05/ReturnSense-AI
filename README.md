@@ -60,7 +60,7 @@ This project is licensed under the MIT License.
 
 ### Prediction Result
 
-![Prediction Result](sscreenshots/prediction.png)
+![Prediction Result](screenshots/prediction.png)
 
 ## Author
 Shivam Shrivastav
