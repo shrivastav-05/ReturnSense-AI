@@ -103,29 +103,6 @@ Real-Time Return Prediction
 
 ---
 
-# Model Development
-
-The project follows a structured Machine Learning workflow:
-
-### 1. Data Preparation
-
-* Data inspection
-* Data cleaning
-* Missing-value treatment
-* Duplicate checking
-* Data-type validation
-
-### 2. Feature Engineering
-
-Relevant customer, order, product and transaction characteristics are transformed into model-ready features.
-
-### 3. Preprocessing
-
-Categorical variables are encoded and numerical variables are transformed as required by the selected model.
-
-### 4. Model Training
-
-Classification algorithms are evaluated to identify an appropriate model for return prediction.
 
 # Flask Application
 
