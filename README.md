@@ -161,68 +161,18 @@ Prediction Result
 
 ![Prediction Result](screenshots/predication.png)
 
----
-
-# Project Structure
-
-```text
-ReturnSense-AI/
-│
-├── app.py
-├── model/
-│   └── trained_model.pkl
-│
-├── templates/
-│   ├── home.html
-│   └── result.html
-│
-├── static/
-│   └── style.css
-│
-├── data/
-│   └── dataset.csv
-│
-├── notebooks/
-│   └── ReturnSense_AI.ipynb
-│
-├── screenshots/
-│   ├── home.png
-│   └── predication.png
-│
-├── requirements.txt
-└── README.md
-```
-
----
-
 # Technologies Used
 
-### Programming & Data Science
-
-* Python
-* Pandas
-* NumPy
-* Scikit-learn
-
-### Machine Learning
-
-* Classification Algorithms
-* Feature Engineering
-* Categorical Encoding
-* Model Evaluation
-* Model Serialization
-
-### Web Development
-
-* Flask
-* HTML
-* CSS
-
-### Development Tools
-
-* Jupyter Notebook
-* GitHub
-
+* **Python**
+* **Pandas**
+* **NumPy**
+* **Scikit-learn**
+* **Matplotlib**
+* **Seaborn**
+* **Joblib**
+* **Jupyter Notebook**
+* **Power BI** *(planned dashboard stage)*
+  
 ---
 
 # Installation
