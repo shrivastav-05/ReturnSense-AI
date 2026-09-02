@@ -282,7 +282,7 @@ The project combines **Machine Learning and Web Development** to convert a predi
 
 ---
 
-# Author
+##Author
 
 **Shivam Shrivastav**
 
