@@ -128,11 +128,11 @@ Prediction Result
 
 ## Prediction Interface
 
-![Prediction Interface](screenshots/home.png)
+![ReturnSense AI Prediction Interface](./screenshots/home.png)
 
 ## Prediction Result
 
-![Prediction Result](screenshots/predication.png)
+![ReturnSense AI Prediction Result](./screenshots/predication.png)
 
 # Technologies Used
 
