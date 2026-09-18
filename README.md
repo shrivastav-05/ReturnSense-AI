@@ -102,30 +102,6 @@ Real-Time Return Prediction
 * Business-oriented prediction output
 
 ---
-
-
-# Flask Application
-
-The trained Machine Learning model is integrated into a Flask web application.
-
-The application allows a user to enter order/customer information and receive a real-time prediction.
-
-```text
-User Input
-    ↓
-HTML Form
-    ↓
-Flask Backend
-    ↓
-Preprocessing
-    ↓
-Trained ML Model
-    ↓
-Return Prediction
-    ↓
-Prediction Result
-```
-
 ---
 
 # Application Screenshots
