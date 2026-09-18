@@ -102,8 +102,28 @@ Real-Time Return Prediction
 * Business-oriented prediction output
 
 ---
----
+# Flask Web Application
 
+ReturnSense AI is deployed as a **Flask-based web application** that provides a simple interface for real-time return prediction.
+
+The Flask application connects the trained Machine Learning model with the web interface and handles user input, preprocessing, prediction, and result generation.
+
+```text
+User Input
+    ↓
+Flask Web Interface
+    ↓
+Input Validation
+    ↓
+Data Preprocessing
+    ↓
+Trained ML Model
+    ↓
+Return Prediction
+    ↓
+Prediction Result
+```
+---
 # Application Screenshots
 
 ## Prediction Interface
